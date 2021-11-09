@@ -47,8 +47,9 @@ class Showcontroller extends Controller
     }
 
     //edit
-    public function edit(){
-        return view('admin.show.from_edit_shows');
+    public function edit($id_show){
+        $edit = Show::find($id_show);
+        return view('admin.show.from_edit_shows' , compact('edit'));
     }
 
      //delete

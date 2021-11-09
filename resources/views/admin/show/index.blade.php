@@ -50,7 +50,7 @@
                                                             <td>{{$show_product->id_show}}</td>
                                                             <td> <img src="{{asset('admin/images/'.$show_product->image)}}" alt="" style="width: 150px"></td>
                                                             <td>{{$show_product->admin->firstName." ".$show_product->admin->lastName}}</td>
-                                                            <td><a href="{{route('edit_show')}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                            <td><a href="{{url('/Admin/show/edit_show/'.$show_product->id_show)}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
                                                             <td><a href="{{url('/Admin/show/delete/'.$show_product->id_show)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
                                                         </tr>
                                                     @endforeach

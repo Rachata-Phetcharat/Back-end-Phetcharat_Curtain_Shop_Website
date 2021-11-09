@@ -1,4 +1,5 @@
 @include('layouts/admin/head')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -33,17 +34,19 @@
                                 <div class="breadcrumb">
                                     <section class="panel">
                                         <div class="panel-body">
-                                            <form role="form">
+                                            <form role="form" action="" method="POST" enctype="multipart/form-data">
+                                                {{csrf_field()}}
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">เนื้อหา</label>
                                                     <!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> -->
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">File input</label>
-                                                    <input type="file" id="exampleInputFile">
+                                                    <input type="file" name="image" id="exampleInputFile" id="image">
                                                     <p class="help-block">Example block-level help text here.</p>
                                                 </div>
-
+                                                <img id="showImage" src="{{asset('/admin/images/'.$edit->image)}}" alt="" style="width: 150px; padding-bottom: 20px;">
+                                                <br>
                                                 <!-- <button type="submit" class="btn btn-primary">เพิ่มข้อมูลคอนเท้น</button> -->
                                                 <button type="submit" class="btn btn-success btn-icon-split">
                                                     <span class="icon text-white-50">
@@ -65,8 +68,18 @@
     </div>
     <!-- End of Content Wrapper -->
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $('#showImage').arrt('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
+
     @include('layouts/admin/footer')
 
 </body>
-
-</html>
