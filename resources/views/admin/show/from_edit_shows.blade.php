@@ -42,7 +42,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">File input</label>
-                                                    <input type="file" name="image" id="exampleInputFile" id="image">
+                                                    <input type="file" name="image" id="image">
                                                     <p class="help-block">Example block-level help text here.</p>
                                                 </div>
                                                 <img id="showImage" src="{{asset('/admin/images/'.$edit->image)}}" alt="" style="width: 150px; padding-bottom: 20px;">
@@ -69,11 +69,11 @@
     <!-- End of Content Wrapper -->
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#image').change(function(e) {
+        $(document).ready(function(){
+            $('#image').change(function(e){
                 var reader = new FileReader();
                 reader.onload = function(e){
-                    $('#showImage').arrt('src', e.target.result);
+                    $('#showImage').attr('src',e.target.result);
                 }
                 reader.readAsDataURL(e.target.files['0']);
             });
