@@ -45,7 +45,7 @@
                                                     <input type="file" name="image" id="image">
                                                     <p class="help-block">Example block-level help text here.</p>
                                                 </div>
-                                                <img id="showImage" src="{{asset('/admin/images/'.$edit->image)}}" alt="" style="width: 150px; padding-bottom: 20px;">
+                                                <img id="showImage" src="{{asset('/Back_End/images/'.$edit->image)}}" alt="" style="width: 150px; padding-bottom: 20px;">
                                                 <br>
                                                 <!-- <button type="submit" class="btn btn-primary">เพิ่มข้อมูลคอนเท้น</button> -->
                                                 <button type="submit" class="btn btn-success btn-icon-split">

@@ -37,8 +37,8 @@ class Showcontroller extends Controller
         $show_product = new show;
         $request -> hasFile('image');
         $filename = Str::random(10).'.'.$request->file('image')->getClientOriginalExtension();
-        $request->file('image')->move(public_path().'/admin/images/',$filename);
-        Image::make(public_path().'/admin/images/'.$filename);
+        $request->file('image')->move(public_path().'/Back_End/images/',$filename);
+        Image::make(public_path().'/Back_End/images/'.$filename);
         $show_product->image = $filename;
         $show_product->id_admin = Auth::user()->id;
 
