@@ -34,7 +34,7 @@
                                 <div class="breadcrumb">
                                     <section class="panel">
                                         <div class="panel-body">
-                                            <form role="form" action="" method="POST" enctype="multipart/form-data">
+                                            <form role="form" action="{{url('Admin/show/update/'.$edit->id_show)}}" method="POST" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">เนื้อหา</label>

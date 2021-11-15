@@ -41,9 +41,9 @@ Route::get('/Admin/type_product/delete/{id}' , 'Admin\Type_product_Controller@de
 //Show
 Route::get('/Admin/show/index' , 'Admin\ShowController@index')->name('show');
 Route::get('/Admin/show/add_shows' , 'Admin\ShowController@add')->name('add_show');
-// Route::get('/Admin/show/edit_shows' , 'Admin\ShowController@edit')->name('edit_show');
 
 Route::post('/Admin/show/create' , 'Admin\ShowController@create')->name('create_show');
+Route::post('Admin/show/update/{id}', 'Admin\ShowController@update');
 Route::get('/Admin/show/edit_show/{id}' , 'Admin\ShowController@edit');
 Route::get('/Admin/show/delete/{id}' , 'Admin\ShowController@delete');
 

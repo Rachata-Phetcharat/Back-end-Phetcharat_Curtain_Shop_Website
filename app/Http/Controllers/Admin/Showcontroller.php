@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Image;
+use File;
 
 class Showcontroller extends Controller
 {
@@ -54,7 +55,9 @@ class Showcontroller extends Controller
 
      //delete
     public function delete($id_show){
-         Show::destroy($id_show);
-          return redirect('/Admin/show/index');
+        $delete = Show::find($id_show);
+        File::delete(public_path().'/Back_End/images/'.$delete->image);
+        $delete->delete();
+        return redirect('/Admin/show/index');
     }
 }
