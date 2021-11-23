@@ -47,7 +47,7 @@
                                                 <tbody>
                                                     @foreach ($type_product as $type)
                                                         <tr>
-                                                            <td>{{$type->id_type}}</td>
+                                                            <td>{{$type->id_type}}</td>                                                            
                                                             <td>{{$type->name}}</td>
                                                             <td>{{$type->admin->firstName." ".$type->admin->lastName}}</td>
                                                             <td>{{$type->created_at}}</td>
