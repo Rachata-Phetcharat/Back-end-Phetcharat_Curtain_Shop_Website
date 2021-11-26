@@ -33,23 +33,54 @@
                                 <div class="breadcrumb">
                                     <section class="panel">
                                         <div class="panel-body">
-                                            <form role="form">
+                                            <form role="form" action="{{route('create_product')}}" method="POST" enctype="multipart/form-data">
                                                 {{csrf_field()}}
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">เนื้อหา</label>
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="ชื่อ">
+                                                    <input class="form-control" name="heading" id="heading" placeholder="ชื่อ">
+                                                    
+                                                    @error('heading')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
+
                                                 <div class="form-group">
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="เนื้อหา">
+                                                    <input class="form-control" name="desctiption" id="desctiption" placeholder="เนื้อหา">
+
+                                                    @error('desctiption')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
+
+                                                {{-- <div class="form-group">
+                                                    <input class="form-control" name="type_product" id="type_product" placeholder="ประเภทสินค้า">
+                                                    
+                                                    @error('type_product')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
+                                                </div> --}}
+
                                                 <div class="form-group">
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="ประเภทสินค้า">
+
+                                                    <select class="form-control" name="type_product" id="type_product">
+                                                        @foreach ($Type_product as $rows)
+                                                            <option value="{{$rows->id_type}}">{{$rows->name}}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                    @error('type_product')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">File input</label>
-                                                    <input type="file" id="exampleInputFile">
+                                                    <input type="file" name="image" id="image">
                                                     <p class="help-block">Example block-level help text here.</p>
+
+                                                    @error('image')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
 
                                                 <!-- <button type="submit" class="btn btn-primary">เพิ่มข้อมูลคอนเท้น</button> -->

@@ -47,43 +47,18 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td><a href="{{route('edit_product')}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><a href="form_edit_products.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-                                                    </tr>
-                                                    {{-- <tr>
-                                                        <td>2</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td><a href="form_edit_products.php" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><a href="form_edit_products.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td><a href="form_edit_products.php" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><a href="form_edit_products.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-                                                    </tr> --}}
+                                                    @foreach ($product as $Product)
+                                                        <tr>
+                                                            <td>{{$Product->id_product}}</td>
+                                                            <td>{{$Product->heading}}</td>
+                                                            <td>{{$Product->text}}</td>
+                                                            <td>{{$Product->type->name}}</td>
+                                                            <td><img src="{{asset('Back_End/images/'.$Product->image)}}" alt="" style="width: 150px"></td>
+                                                            <td>{{$Product->admin->firstName." ".$Product->admin->lastName}}</td>
+                                                            <td><a href="{{url('/Admin/product/edit_products/'.$Product->id_product)}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                            <td><a href="{{url('/Admin/product/delete/'.$Product->id_product)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

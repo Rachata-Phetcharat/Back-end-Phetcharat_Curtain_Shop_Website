@@ -27,7 +27,11 @@ Route::get('/Admin/index' , 'Admin\AdminController@index')->name('admin');
 //Product
 Route::get('/Admin/product/index' , 'Admin\ProductController@index')->name('product');
 Route::get('/Admin/product/add_products' , 'Admin\ProductController@add')->name('add_product');
-Route::get('/Admin/product/edit_products' , 'Admin\ProductController@edit')->name('edit_product');
+
+Route::post('/Admin/product/create' , 'Admin\ProductController@create')->name('create_product');
+Route::post('/Admin/product/update/{id}' , 'Admin\ProductController@update');
+Route::get('/Admin/product/edit_products/{id}' , 'Admin\ProductController@edit');
+Route::get('/Admin/product/delete/{id}' , 'Admin\ProductController@delete');
 
 //Type_product
 Route::get('/Admin/type_product/index' , 'Admin\Type_product_Controller@index')->name('type_product');
@@ -44,7 +48,7 @@ Route::get('/Admin/show/add_shows' , 'Admin\ShowController@add')->name('add_show
 
 Route::post('/Admin/show/create' , 'Admin\ShowController@create')->name('create_show');
 Route::post('Admin/show/update/{id}', 'Admin\ShowController@update');
-Route::get('/Admin/show/edit_show/{id}' , 'Admin\ShowController@edit');
+// Route::get('/Admin/show/edit_show/{id}' , 'Admin\ShowController@edit');
 Route::get('/Admin/show/delete/{id}' , 'Admin\ShowController@delete');
 
 //Body
