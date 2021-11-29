@@ -62,7 +62,7 @@
                                                 <div class="form-group">
 
                                                     <select class="form-control" name="type_product" id="type_product">
-                                                        <option selected="selected">{{$edit_product->type->name}}</option>
+                                                        <option selected="selected" value="{{$edit_product->id_type}}">{{$edit_product->type->name}}</option>
                                                         @foreach ($Type_product as $rows)
                                                             <option value="{{$rows->id_type}}">{{$rows->name}}</option>
                                                         @endforeach

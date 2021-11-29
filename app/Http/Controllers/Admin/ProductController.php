@@ -114,10 +114,12 @@ class ProductController extends Controller
     }
 
     //delete
-    public function delete($id_type){
-        Product::destroy($id_type);
-        File::delete(public_path().'/Back_End/images/'.$delete->image);
+    public function delete($id_product){
+        $delete = Product::find($id_product);
+        if ($delete->image != 'NOPIC.png') {
+            File::delete(public_path().'/Back_End/images/'.$update_product->image);
+        }
         $delete->delete();
-        return redirect('/Admin/type_product/index');
+        return redirect('/Admin/product/index');
     }
 }
