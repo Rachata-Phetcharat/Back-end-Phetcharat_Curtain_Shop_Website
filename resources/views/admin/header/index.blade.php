@@ -39,45 +39,28 @@
                                                 <thead>
                                                     <tr>
                                                         <th>ลำดับ</th>
-                                                        <th>เนื้อหา</th>
                                                         <th>รูป</th>
+                                                        <th>สถานะ</th>
                                                         <th>ผู้ที่สรางบทความ</th>
-                                                        <th>แก้ไขข้อมูล</th>
                                                         <th>ลบข้อมูล</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <!-- <td><a href="form_edit_header.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><a href="{{route('edit_header')}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
-                                                    {{-- </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <!-- <td><a href="form_edit_header.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><a href="form_edit_header.php" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <!-- <td><a href="form_edit_header.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><a href="form_edit_header.php" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
-                                                    </tr> --}}
+                                                    @foreach ($header as $Header)
+                                                        <tr>
+                                                            <td>{{$Header->id_header}}</td>
+                                                            <td><img src="{{asset('admin/images/'.$Header->image)}}" alt="" style="width: 150px"></td>
+                                                            <td>
+                                                                <input type="checkbox" data-id="{{ $Header->id_header }}" name="status" class="js-switch" {{ $Header->status == 'open' ? 'checked' : '' }}>                   
+                                                                {{-- <label class="switch">
+                                                                    <input type="checkbox" checked>
+                                                                    <span class="slider round">{{$Header->status}}</span>
+                                                                </label> --}}
+                                                            </td>
+                                                            <td>{{$Header->admin->firstName." ".$Header->admin->lastName}}</td>
+                                                            <td><a href="{{url('/Admin/header/delete/'.$Header->id_header)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
+                                                            </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -96,5 +79,33 @@
    @include('layouts/admin/footer')
 
 </body>
+
+<script>
+
+let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+    elems.forEach(function(html) {
+        let switchery = new Switchery(html,  { size: 'small' });
+    });
+
+
+    $(document).ready(function(){
+    $('.js-switch').change(function () {
+        let status = $(this).prop('checked') === true ?  'open' : 'close' ;
+        let Idheader = $(this).data('id');
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '{{ route('header.update.status') }}',
+            data: {'status': status, 'id_header': Idheader},
+            success: function (data) {
+                console.log(data.message);
+            }
+            });
+        });
+    });
+</script>
+
+    
 
 </html>

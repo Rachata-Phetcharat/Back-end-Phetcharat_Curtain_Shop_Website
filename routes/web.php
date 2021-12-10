@@ -60,3 +60,7 @@ Route::get('/Admin/body/from_edit_bodys' , 'Admin\BodyController@edit')->name('e
 Route::get('/Admin/header/index' , 'Admin\HeaderController@index')->name('header');
 Route::get('/Admin/header/from_add_headers' , 'Admin\HeaderController@add')->name('add_header');
 Route::get('/Admin/header/from_edit_headers' , 'Admin\HeaderController@edit')->name('edit_header');
+Route::get('/Admin/header/delete/{id}' , 'Admin\HeaderController@delete');
+Route::get('/status/update', 'Admin\HeaderController@updateStatus')->name('header.update.status');
+
+Route::post('/Admin/header/create' , 'Admin\HeaderController@create')->name('create_header');

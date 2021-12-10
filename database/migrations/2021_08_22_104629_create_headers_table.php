@@ -15,9 +15,8 @@ class CreateHeadersTable extends Migration
     {
         Schema::create('headers', function (Blueprint $table) {
             $table->bigIncrements('id_header');
-            $table->string('text');
             $table->string('image');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->integer('id_admin');
             $table->timestamps();
         });
