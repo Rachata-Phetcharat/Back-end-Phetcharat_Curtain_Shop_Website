@@ -33,16 +33,18 @@
                                 <div class="breadcrumb">
                                     <section class="panel">
                                         <div class="panel-body">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">เนื้อหา</label>
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="เนื้อหา">
-                                                </div>
+                                            <form role="form" action="{{route('create_header')}}" method="POST" enctype="multipart/form-data">
+                                                {{csrf_field()}}
 
+                                                <label for="exampleInputEmail1">เนื้อหา</label>
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">File input</label>
-                                                    <input type="file" id="exampleInputFile">
+                                                    <input type="file" name="image" id="image">
                                                     <p class="help-block">Example block-level help text here.</p>
+
+                                                    @error('image')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
 
                                                 <!-- <button type="submit" class="btn btn-primary">เพิ่มข้อมูลคอนเท้น</button> -->

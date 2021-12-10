@@ -35,11 +35,8 @@
                                         <div class="panel-body">
                                             <form role="form" action="{{route('create_show')}}" method="POST" enctype="multipart/form-data">
                                                 {{csrf_field()}}
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">เนื้อหา</label>
-                                                    <!-- <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> -->
-                                                </div>
-
+                                                
+                                                <label for="exampleInputEmail1">เนื้อหา</label>
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">File input</label>
                                                     <input type="file" name="image" id="image">

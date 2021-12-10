@@ -49,8 +49,8 @@ class ProductController extends Controller
 
         if($request->hasFile('image')){
             $filename = Str::random(10).'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path().'/Back_End/images/',$filename);
-            Image::make(public_path().'/Back_End/images/'.$filename);
+            $request->file('image')->move(public_path().'/admin/images/',$filename);
+            Image::make(public_path().'/admin/images/'.$filename);
             $create_product->image = $filename;
         }
         else{
@@ -89,11 +89,11 @@ class ProductController extends Controller
         if($request->hasFile('image')){
             $update_product = Product::find($id_product);
             if ($update_product->image != 'NOPIC.png') {
-                File::delete(public_path().'/Back_End/images/'.$update_product->image);
+                File::delete(public_path().'/admin/images/'.$update_product->image);
             }
             $filename = Str::random(10).'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path().'/Back_End/images/',$filename);
-            Image::make(public_path().'/Back_End/images/'.$filename);
+            $request->file('image')->move(public_path().'/admin/images/',$filename);
+            Image::make(public_path().'/admin/images/'.$filename);
             $update_product->image = $filename;
 
             $update_product->heading = $request->heading;
@@ -117,7 +117,7 @@ class ProductController extends Controller
     public function delete($id_product){
         $delete = Product::find($id_product);
         if ($delete->image != 'NOPIC.png') {
-            File::delete(public_path().'/Back_End/images/'.$update_product->image);
+            File::delete(public_path().'/admin/images/'.$delete->image);
         }
         $delete->delete();
         return redirect('/Admin/product/index');

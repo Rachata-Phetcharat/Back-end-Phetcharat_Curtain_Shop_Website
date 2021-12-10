@@ -38,8 +38,8 @@ class Showcontroller extends Controller
         $show_product = new show;
         $request -> hasFile('image');
         $filename = Str::random(10).'.'.$request->file('image')->getClientOriginalExtension();
-        $request->file('image')->move(public_path().'/Back_End/images/',$filename);
-        Image::make(public_path().'/Back_End/images/'.$filename);
+        $request->file('image')->move(public_path().'/admin/images/',$filename);
+        Image::make(public_path().'/admin/images/'.$filename);
         $show_product->image = $filename;
         $show_product->id_admin = Auth::user()->id;
 
@@ -48,15 +48,15 @@ class Showcontroller extends Controller
     }
 
     //edit
-    public function edit($id_show){
-        $edit = Show::find($id_show);
-        return view('admin.show.from_edit_shows' , compact('edit'));
-    }
+    // public function edit($id_show){
+    //     $edit = Show::find($id_show);
+    //     return view('admin.show.from_edit_shows' , compact('edit'));
+    // }
 
-     //delete
+    //delete
     public function delete($id_show){
         $delete = Show::find($id_show);
-        File::delete(public_path().'/Back_End/images/'.$delete->image);
+        File::delete(public_path().'/admin/images/'.$delete->image);
         $delete->delete();
         return redirect('/Admin/show/index');
     }
