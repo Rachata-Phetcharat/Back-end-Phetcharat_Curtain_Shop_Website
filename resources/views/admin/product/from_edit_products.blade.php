@@ -82,7 +82,7 @@
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                     
-                                                    <img id="showImage" src="{{asset('Back_End/images/'.$edit_product->image)}}" alt="" style="width: 150px;">
+                                                    <img id="showImage" src="{{asset('admin/images/'.$edit_product->image)}}" alt="" style="width: 150px;">
                                                 </div>
 
                                                 <!-- <button type="submit" class="btn btn-primary">เพิ่มข้อมูลคอนเท้น</button> -->

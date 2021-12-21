@@ -40,7 +40,6 @@
                                                         <th>ลำดับ</th>
                                                         <th>ชื่อ</th>
                                                         <th>เนื้อหา</th>
-                                                        <th>สินค้า</th>
                                                         <th>รูป</th>
                                                         <th>ผู้ที่สรางบทความ</th>
                                                         <th>แก้ไขข้อมูล</th>
@@ -49,42 +48,16 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <!-- <td><a href="form_edit_body.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><a href="{{route('edit_body')}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
+                                                        @foreach ($content as $Content)
+                                                            <td>{{$Content->id_content}}</td>
+                                                            <td>{{$Content->heading}}</td>
+                                                            <td>{{$Content->text}}</td>
+                                                            <td><img src="{{asset('admin/images/'.$Content->image)}}" alt="" style="width: 150px"></td>
+                                                            <td>{{$Content->admin->firstName." ".$Content->admin->lastName}}</td>
+                                                            <td><a href="{{url('/Admin/content/edit_create/'.$Content->id_content)}}" class="btn btn-warning btn-circle"><i class="fas fa-edit"></i></a></td>
+                                                            <td><a href="{{url('/Admin/content/delete/'.$Content->id_content)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
+                                                        @endforeach
                                                     </tr>
-                                                    {{-- <tr>
-                                                        <td>2</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <!-- <td><a href="form_edit_body.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><a href="form_edit_body.php" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <!-- <td><a href="form_edit_body.php" class="btn btn-warning">แก้ไขข้อมูล</a></td> -->
-                                                        <td><a href="form_edit_body.php" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
-                                                        <!-- <td><button type="submit" class="btn btn-danger">ลบข้อมูล</button></td> -->
-                                                        <td><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></td>
-                                                    </tr> --}}
                                                 </tbody>
                                             </table>
                                         </div>

@@ -33,22 +33,32 @@
                                 <div class="breadcrumb">
                                     <section class="panel">
                                         <div class="panel-body">
-                                            <form role="form">
+                                            <form action="{{route('create_content')}}" method="post" enctype="multipart/form-data">
+                                                {{csrf_field()}}
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">เนื้อหา</label>
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="ชื่อหัวข้อ">
+                                                    <input class="form-control" name="heading" id="heading" placeholder="ชื่อ">
+                                                    
+                                                    @error('heading')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="เนื้อหา">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="สินค้า">
+                                                    <input class="form-control" name="text" id="text" placeholder="เนื้อหา">
+
+                                                    @error('text')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">File input</label>
-                                                    <input type="file" id="exampleInputFile">
+                                                    <input type="file" name="image" id="image">
                                                     <p class="help-block">Example block-level help text here.</p>
+
+                                                    @error('image')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">เพิ่มข้อมูลคอนเท้น</button>
                                             </form>

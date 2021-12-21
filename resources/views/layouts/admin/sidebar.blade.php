@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
         <div class="sidebar-brand-icon">
             <img src="{{asset('admin/img/logo.png')}}">
         </div>
@@ -42,7 +42,7 @@
 
     <!-- Nav Item - show -->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('body')}}">
+        <a class="nav-link" href="{{route('content')}}">
             <i class="fab fa-leanpub"></i>
             <span>หน้าเนื้อหา</span></a>
     </li>

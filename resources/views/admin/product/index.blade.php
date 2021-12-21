@@ -55,7 +55,7 @@
                                                             <td>{{$Product->type->name}}</td>
                                                             <td><img src="{{asset('admin/images/'.$Product->image)}}" alt="" style="width: 150px"></td>
                                                             <td>{{$Product->admin->firstName." ".$Product->admin->lastName}}</td>
-                                                            <td><a href="{{url('/Admin/product/edit_products/'.$Product->id_product)}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                            <td><a href="{{url('/Admin/product/edit_products/'.$Product->id_product)}}" class="btn btn-warning btn-circle"><i class="fas fa-edit"></i></a></td>
                                                             <td><a href="{{url('/Admin/product/delete/'.$Product->id_product)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
                                                         </tr>
                                                     @endforeach

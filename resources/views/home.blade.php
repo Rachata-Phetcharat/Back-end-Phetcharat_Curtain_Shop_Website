@@ -20,7 +20,7 @@
 
                     <p>
                         <a href="{{route('admin')}}" class="btn btn-primary">product management</a>
-                        <a href="" class="btn btn-success">home</a>
+                        <a href="{{ url('/') }}" class="btn btn-success">home</a>
                     </p>
                 </div>
             </div>

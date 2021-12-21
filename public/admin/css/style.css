@@ -1,0 +1,164 @@
+body {
+    background-color: #F8F5E4 !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    position: absolute;
+    top: 280px;
+    right: 80px;
+    /* width: 400px;
+    height: 25px; */
+    object-fit: cover;
+}
+
+.navbar {
+    background-color: #83D6E8;
+    clip-path: polygon( 0 0, 0 0, 0 0, 100% 0, 100% 100%, 90% 100%, 5% 100%, 0% 75%, 0% 10%)
+}
+
+.navbar-height {
+    height: 50px;
+}
+
+.head-img {
+    width: 100%;
+    height: 510px;
+    object-fit: cover;
+}
+
+.title {
+    font-family: Overpass;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 70px;
+    line-height: 107px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.heading {
+    /* font-family: Oregano; */
+    /* font-style: normal; */
+    /* font-weight: normal; */
+    font-size: 50px;
+    /* line-height: 103px; */
+    display: flex;
+    padding-top: 100px;
+    padding-left: 30px;
+    align-items: center;
+    text-align: center;
+    color: #FF0000;
+}
+
+.img-show {
+    width: 450px;
+    height: 400px;
+}
+
+.rcorners1 {
+    border-radius: 25px;
+    background: #FFB3A6 !important;
+    padding: 10px;
+    width: 200px;
+    height: 60px;
+}
+
+.rcorners2 {
+    border-radius: 25px;
+    background: #FCF3C0;
+    padding: 25px;
+    width: 500px;
+    height: auto;
+}
+
+.example-top {
+    padding-top: 30px;
+}
+
+.example-left {
+    padding-left: 100px;
+}
+
+.all-bottom {
+    padding-bottom: 30px;
+}
+
+.far-show {
+    padding-top: 20px;
+}
+
+.different-levels-show {
+    padding-top: 60px;
+}
+
+.advice-top {
+    padding-top: 80px;
+}
+
+.advice-left-heading {
+    padding-left: 170px;
+}
+
+.advice-left {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.products {
+    padding-left: 100px;
+}
+
+.products-top {
+    padding-top: 50px;
+}
+
+.products-left {
+    padding-left: 200px;
+}
+
+.example-show {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+}
+
+
+/* .decoration {
+    text-align:Left;
+} */
+
+
+/* .decoration .decoration-inside {
+    height: 100px;
+    width: 1px;
+    background-color: black;
+    display:block;
+} */
+
+.work-header {
+    height: 270px;
+    width: 800px;
+    margin-top: 30px;
+    background-color: #FFB3A6;
+    z-index: -1;
+    clip-path: polygon( 0 0, 0 0, 0 0, 100% 0, 100% 100%, 90% 100%, 5% 100%, 0% 80%, 0% 10%)
+}
+
+.font-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+.work-image {
+    z-index: 1;
+    top: 150px;
+    left: 1000px;
+    width: 60%;
+    height: auto;
+}

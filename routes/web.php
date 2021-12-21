@@ -52,9 +52,13 @@ Route::post('Admin/show/update/{id}', 'Admin\ShowController@update');
 Route::get('/Admin/show/delete/{id}' , 'Admin\ShowController@delete');
 
 //Body
-Route::get('/Admin/body/index' , 'Admin\Bodycontroller@index')->name('body');
-Route::get('/Admin/body/from_add_bodys' , 'Admin\BodyController@add')->name('add_body');
-Route::get('/Admin/body/from_edit_bodys' , 'Admin\BodyController@edit')->name('edit_body');
+Route::get('/Admin/content/index' , 'Admin\Contentcontroller@index')->name('content');
+Route::get('/Admin/content/from_add_bodys' , 'Admin\Contentcontroller@add')->name('add_body');
+
+Route::post('/Admin/content/create' , 'Admin\Contentcontroller@create')->name('create_content');
+Route::post('/Admin/content/update/{id}', 'Admin\Contentcontroller@update');
+Route::get('/Admin/content/edit_create/{id}' , 'Admin\Contentcontroller@edit');
+Route::get('/Admin/content/delete/{id}' , 'Admin\Contentcontroller@delete');
 
 //Header
 Route::get('/Admin/header/index' , 'Admin\HeaderController@index')->name('header');
@@ -64,3 +68,9 @@ Route::get('/Admin/header/delete/{id}' , 'Admin\HeaderController@delete');
 Route::get('/status/update', 'Admin\HeaderController@updateStatus')->name('header.update.status');
 
 Route::post('/Admin/header/create' , 'Admin\HeaderController@create')->name('create_header');
+
+//front-end
+Route::get('/welcome' , 'front\index@index')->name('index');
+Route::get('/product' , 'front\productController@product')->name('product.f');
+Route::get('/word' , 'front\workController@work')->name('work');
+Route::get('/contact' , 'front\contactController@contect')->name('contact');

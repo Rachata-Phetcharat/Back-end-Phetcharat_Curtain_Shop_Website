@@ -52,7 +52,7 @@
                                                             <td>{{$type->admin->firstName." ".$type->admin->lastName}}</td>
                                                             <td>{{$type->created_at}}</td>
                                                             <td>{{$type->updated_at}}</td>
-                                                            <td><a href="{{url('/Admin/type_product/edit_type/'.$type->id_type)}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td>
+                                                            <td><a href="{{url('/Admin/type_product/edit_type/'.$type->id_type)}}" class="btn btn-warning btn-circle"><i class="fas fa-edit"></i></i></a></td>
                                                             <td><a href="{{url('/Admin/type_product/delete/'.$type->id_type)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
                                                         </tr>
                                                     @endforeach

@@ -1,4 +1,5 @@
 @include('layouts/admin/head')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -33,22 +34,34 @@
                                 <div class="breadcrumb">
                                     <section class="panel">
                                         <div class="panel-body">
-                                            <form role="form">
+                                            <form role="form" action="{{url('/Admin/content/update/'.$edit_content->id_content)}}" method="POST" enctype="multipart/form-data">
+                                                {{csrf_field()}}
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">เนื้อหา</label>
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="ชื่อ">
+                                                    <input class="form-control" name="heading" id="heading" value="{{$edit_content->heading}}">
+                                                    
+                                                    @error('heading')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group">
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="เนื้อหา">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input class="form-control" id="exampleInputEmail1" placeholder="สินค้า">
+                                                    <input class="form-control" name="text" id="text" value="{{$edit_content->text}}">
+
+                                                    @error('text')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">File input</label>
-                                                    <input type="file" id="exampleInputFile">
+                                                    <input type="file" id="image" name="image">
                                                     <p class="help-block">Example block-level help text here.</p>
+
+                                                    @error('image')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
+                                                
+                                                    <img id="showImage" src="{{asset('admin/images/'.$edit_content->image)}}" alt="" style="width: 150px;">
                                                 </div>
 
                                                 <!-- <button type="submit" class="btn btn-primary">เพิ่มข้อมูลคอนเท้น</button> -->
@@ -71,6 +84,18 @@
         </div>
     </div>
     <!-- End of Content Wrapper -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#image').change(function(e){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $('#showImage').attr('src',e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 
     @include('layouts/admin/footer')
 
