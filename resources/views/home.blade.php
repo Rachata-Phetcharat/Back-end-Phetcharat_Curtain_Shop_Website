@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@include('layouts/admin/head')
 
-@section('content')
+@include('layouts/admin/header')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -14,17 +15,22 @@
                         </div>
                     @endif
 
-                    <p><strong>Name : </strong>{{Auth::user()->firstName}}</p>
-                    <p><strong>Userame : </strong>{{Auth::user()->username}}</p>
-                    <p><strong>Email : </strong>{{Auth::user()->email}}</p>
+                    <p><strong>FirsName : </strong>{{ Auth::user()->firstName }} <strong>LastName :
+                        </strong>{{ Auth::user()->lastName }}</p>
+                    <p><strong>Userame : </strong>{{ Auth::user()->username }}</p>
+                    <p><strong>Email : </strong>{{ Auth::user()->email }}</p>
 
                     <p>
-                        <a href="{{route('admin')}}" class="btn btn-primary">product management</a>
-                        <a href="{{ url('/') }}" class="btn btn-success">home</a>
+                        @if (Auth::user()->checkIsAdmin())
+                            <a href="{{ route('admin') }}" class="btn btn-primary">product management</a>
+                        @endif
+                        <a href="{{ route('welcome') }}" class="btn btn-success">home</a>
                     </p>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+
+@include('layouts/admin/footer')

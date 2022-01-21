@@ -21,7 +21,7 @@ class Showcontroller extends Controller
     public function add(){
         return view('admin.show.from_add_shows');
     }
-    
+
     public function create(Request $request){
 
         $validatedData = $request->validate([
@@ -34,7 +34,7 @@ class Showcontroller extends Controller
             // 'image.size' => 'อัพโหลดรูปภาพได้ไม่เกิน 10 MB',
         ]
         );
-        
+
         $show_product = new show;
         $request -> hasFile('image');
         $filename = Str::random(10).'.'.$request->file('image')->getClientOriginalExtension();
@@ -44,7 +44,7 @@ class Showcontroller extends Controller
         $show_product->id_admin = Auth::user()->id;
 
         $show_product->save();
-        return redirect()->route('show');
+        return redirect()->route('show')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     //edit
@@ -58,6 +58,6 @@ class Showcontroller extends Controller
         $delete = Show::find($id_show);
         File::delete(public_path().'/admin/images/'.$delete->image);
         $delete->delete();
-        return redirect('/Admin/show/index');
+        return redirect('/Admin/show/index')->with('delete','ลบข้อมูลเรียบร้อย');
     }
 }

@@ -54,7 +54,7 @@ class Contentcontroller extends Controller
 
         $create_content->id_admin = Auth::user()->id;
         $create_content->save();
-        return redirect()->route('content');
+        return redirect()->route('content')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     //edit
@@ -100,7 +100,7 @@ class Contentcontroller extends Controller
         }
 
         $update_content->save();
-        return redirect()->route('content');
+        return redirect()->route('content')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     //delete
@@ -110,6 +110,6 @@ class Contentcontroller extends Controller
             File::delete(public_path().'/admin/images/'.$delete->image);
         }
         $delete->delete();
-        return redirect('/Admin/content/index');
+        return redirect('/Admin/content/index')->with('delete','ลบข้อมูลเรียบร้อย');
     }
 }

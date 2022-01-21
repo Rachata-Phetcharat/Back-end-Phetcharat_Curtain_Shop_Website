@@ -13,6 +13,10 @@ use File;
 
 class ProductController extends Controller
 {
+    public function __construct(){
+        $this->middleware("vetifyIsType")->only(['add']);
+    }
+
     public function index(){
         $product = Product::all();
         return view('admin.product.index',compact('product'));
@@ -59,7 +63,7 @@ class ProductController extends Controller
 
         $create_product->id_admin = Auth::user()->id;
         $create_product->save();
-        return redirect()->route('product');
+        return redirect()->route('product')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     //edit
@@ -110,7 +114,7 @@ class ProductController extends Controller
         }
 
         $update_product->save();
-        return redirect()->route('product');
+        return redirect()->route('product')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     //delete
@@ -120,6 +124,6 @@ class ProductController extends Controller
             File::delete(public_path().'/admin/images/'.$delete->image);
         }
         $delete->delete();
-        return redirect('/Admin/product/index');
+        return redirect('/Admin/product/index')->with('delete','ลบข้อมูลเรียบร้อย');
     }
 }

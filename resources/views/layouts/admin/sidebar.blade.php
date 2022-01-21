@@ -3,9 +3,8 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
         <div class="sidebar-brand-icon">
-            <img src="{{asset('admin/img/logo.png')}}">
+            <img src="{{asset('admin/img/main-logo.png')}}">
         </div>
-        <div class=" sidebar-brand-text mx-3">ผ้าม่านเพชรรัตน์</div>
     </a>
 
     <!-- Divider -->

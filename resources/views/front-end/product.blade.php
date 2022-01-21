@@ -1,110 +1,96 @@
-<!-- head -->
 @include ('layouts/layouts-front/head')
 
-
-<body>
-@include ('layouts/layouts-front/navbar')
-
-    <!--2_StratCasrousel-->
-  <img src="{{asset('admin/img/A-2.png')}}" class="d-block w-100" alt="...">
-  <div class="navbar navbar-expand-lg navbar-height"></div>
-    <!--2_EndCasrousel-->
-
-  <!-- สินค้า -->
-  <div class="container">
-    <h1 class="heading">สินค้า</h1>
-    <div class="contener products-top products">
-      @foreach ($product as $row)
-        <div class="d-flex">
-          <div class="flex-shrink-0">
-            <img src="{{asset('admin/images/'.$row->image)}}" alt="" style="width: 150px">
-          </div>
-          <div class="flex-grow-1 ms-3">
-            <h3>{{$row->heading}}</h3>
-            <h4 class="rcorners2">{{$row->text}}</h4>
-          </div>
+<body id="inner_page" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+    @include ('layouts/layouts-front/navbar')
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader">
+            <img src="{{ asset('admin/img/loader.gif') }}" alt="#" />
         </div>
-      @endforeach
-      {{-- <br>
-      <div class="d-flex products-left">
-        <div class="flex-shrink-0">
-          <img src="{{asset('admin/img/L.png')}}" alt="..." width="450" height="400">
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <h3>ม่านจีบ</h3>
-          <h4 class="rcorners2">เป็นม่านรูปแบบมาตรฐานที่ทุกบ้านนิยมเลือกใช้กันมาตั้งแต่อดีตจนถึงปัจจุบัน เพราะม่านรูปแบบนี้สามารถเข้ากันได้กับห้องทั่ว ๆ
-            ไปได้แทบจะทุกสไตล์ ลักษณะของม่านจีบ จะมีการจับจีบที่ผ้าม่านด้านบน เป็นจีบ 3 จีบ ทำให้ผ้าม่านมีลอนสวยงาม และสามารถติดผ้าได้ 2 ชั้นคือม่านโปร่งและม่านทึบ
-          </h4>
-        </div>
-      </div>
-      <br>
-      <div class="d-flex">
-        <div class="flex-shrink-0">
-          <img src="{{asset('admin/img/L.png')}}" alt="..." width="450" height="400">
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <h3> ม่านหูกระเช้า</h3>
-          <h4 class="rcorners2"> ม่านรูปแบบนี้จะให้อารมณ์เก๋ ๆ สนุกสนาน เป็นกันเอง จึงเหมาะกับห้องนั่งเล่นหรือห้องนอน
-            แต่ไม่เหมาะที่จะเลือกใช้กับห้องหรือสถานที่ที่เป็นทางการ จุดเด่นของม่านหูกระเช้า
-            เวลารูดเปิด-ปิดผ้าม่านอาจไม่ค่อยคล่องเหมือนรางชนิดอื่น เพราะผ้าที่เป็นหูแขวนสัมผัสกับรางม่านโดยตรง จะทำให้มีความฝืด แต่ก็ถอดซักได้ง่าย
-          </h4>
-        </div>
-      </div>
-      <br>
-      <div class="d-flex products-left">
-        <div class="flex-shrink-0">
-          <img src="{{asset('admin/img/L.png')}}" alt="..." width="450" height="400">
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <h3>ม่านลอน</h3>
-          <h4 class="rcorners2"> ลักษณะของม่านลอน ผสมผสานระหว่างม่านตาไก่ และม่านจีบเข้าไว้ด้วยกัน โดยลักษณะของผ้าจะเป็นลอนพับไปมา
-            คล้ายม่านตาไก่ แต่ไม่มีการเจาะห่วงที่ด้านบนผ้าม่าน จะถูกล็อคผ้าม่านให้เป็นลอนคล้ายม่านจีบแทน
-            ม่านรูปแบบนี้เหมาะกับการตกแต่งบ้านสไตล์มินิมอล การจัดบ้านแบบเรียบง่าย สบาย ๆ</h4>
-        </div>
-      </div>
-      <br>
-      <div class="d-flex">
-        <div class="flex-shrink-0">
-          <img src="{{asset('admin/img/L.png')}}" alt="..." width="450" height="400">
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <h3> ม่านม้วน</h3>
-          <h4 class="rcorners2">ด้วยความที่ม่านม้วนมีรูปแบบที่ทันสมัย และลักษณะพิเศษของม่านคือ เป็นผ้าผืนใหญ่ที่สามารถม้วนเก็บได้อย่างมิดชิดเรียบร้อย
-            ทำให้ประหยัดพื้นที่ อีกทั้งยังเป็นม่านที่ไม่เก็บฝุ่น ทำความสะอาดได้ง่าย จึงอยากแนะนำให้คนที่ตกแต่งบ้านสไตล์โมเดิร์น ออฟฟิตสำนักงาน
-            หรือร้านค้าที่ต้องการความเป็นสมัยใหม่เลือกม่านชนิดนี้ไปติดตั้งได้ค่ะ ซึ่งม่านม้วนก็จะมีให้เลือกอีก 3 แบบด้วยกัน คือ แบบทึบแสง (Blackout)
-            สามารถกันแสงได้ถึง 90-100 % </h4>
-        </div>
-      </div>
-      <br>
-      <div class="d-flex products-left">
-        <div class="flex-shrink-0">
-          <img src="{{asset('admin/img/L.png')}}" alt="..." width="450" height="400">
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <h3>ม่านพับ</h3>
-          <h4 class="rcorners2">ม่านรูปแบบนี้ เหมาะกับหน้าต่างบานแคบ หรือหน้าต่างบานเล็กที่ติดกันหลายบาน เพราะจะได้เลือกบานเปิดม่านได้ ไม่ต้องเปิดทั้งหมด
-            ม่านพับจะคล้ายกับม่านม้วน คือ เมื่อต้องการเปิดม่าน ให้ดึงรอกให้ผ้าม่านเก็บขึ้นไปด้านบน ม่านม้วน ผ้าก็จะม้วนขึ้นไปด้านบน ส่วนม่านพับ ผ้าจะพับขึ้นไปเป็นชั้น ๆ
-            เรียงซ้อนกันขึ้นไป ม่านม้วนและม่านพับจะแตกต่างกันที่สไตล์ ม่านม้วนจะออกไปทางโมเดิร์นแบบเรียบง่าย แต่ม่านพับจะเป็นโมเดิร์นแบบเรียบหรู</h4>
-        </div>
-      </div>
-      <br>
-      <div class="d-flex">
-        <div class="flex-shrink-0">
-          <img src="{{asset('admin/img/L.png')}}" alt="..." width="450" height="400">
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <h3>มู่ลี่</h3>
-          <h4 class="rcorners2"> มีทั้งแบบที่เป็นไม้ และอลูมิเนียม แต่ใน 2 แบบนี้ ก็จะมีชนิดของไม้และอลูมิเนียมให้เลือกตามความต้องการอีก
-            ซึ่งแบบไม้จะให้ความรู้สึกอบอุ่น ส่วนแบบอลูมิเนียมจะให้ความรู้สึกโมเดิร์นกว่า ในเรื่องของคุณสมบัติ มู่ลี่แตกต่างจากม่านแบบอื่น ๆ คือ สามารถปรับแสง
-            โดยการปรับบานเข้าหรือออก เพื่อให้ได้ทิศทางหรือขนาดช่องแสงตามต้องการ นิยมใช้ในบริเวณที่ไม่สามารถใช้ผ้าม่านได้ เช่น ห้องน้ำโซนเปียก
-            และห้องครัวที่ต้องมีคราบน้ำมัน เพราะสามารถทำความสะอาดได้ง่าย </h4>
-        </div>
-      </div> --}}
-      <hr>
-      <h2 class="example-top">การบริการ</h2>
-      <h4>เราบริการติดตั้งถึงบ้าน รับบริการ <br>
-        การซักผ้าม่าน ซ่อมแซม ในราคาที่เป็นกันเอง</h4>
-      <div class="navbar navbar-expand-lg navbar-height"></div>
     </div>
-  </div>
+    <!-- END LOADER -->
+    <!-- Inner page banner -->
+    <header class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="logo_main">
+                        <a href="{{ route('welcome') }}"><img src="{{ asset('admin/img/main-logo.png') }}" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"><img
+                            src="{{ asset('admin/img/menu_icon.png') }}"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @foreach ($headers as $header)
+        <div id="inner_page_banner" class="section"
+            style="background-image:url({{ asset('admin/images/' . $header->image) }});background-size: cover;background-position: center center;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="full">
+                            <h3>สินค้าเเละบริการ</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    <!-- End inner page banner -->
+
+    <!-- section -->
+    <div class="section team_section layout_padding">
+        <div class="container-fluid">
+            <div class="full">
+                <div class="heading_main text_align_center">
+                    <h2><span class="theme_color">สินค้า</span></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                @foreach ($products as $product)
+                    <div class="col-md-4">
+                        <div class="card-deck">
+                            <div class="card mb-3">
+                                <img src="{{ asset('admin/images/' . $product->image) }}"
+                                    class="card-img-top img-fluid" style="width: 280px; margin: auto auto;" alt="">
+                                <div class="card-body">
+                                    <h2 class="card-title">ชื่อ : {{ $product->heading }}.</h2>
+                                    <h2 class="card-title">ประเภท : {{ $product->type->name }}</h2>
+                                    <p class="card-text">{{ $product->text }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <!-- end section -->
+
+            <!-- section -->
+            <div class="section story_section layout_padding">
+                <div class="container-fluid">
+                    <div class="row white_bg">
+                        <div class="col-md-6">
+                            <div class="full story_blog paddding_left_15">
+                                <div class="heading_main text_align_left">
+                                    <h2><span class="theme_color">การบริการ</span>เพิ่มเติม</h2>
+                                </div>
+                            </div>
+                            <h4>
+                                เราบริการติดตั้งถึงบ้าน รับบริการ <br> การซักผ้าม่าน ซ่อมแซม ในราคาที่เป็นกันเอง
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @include ('layouts/layouts-front/footer')
+
 </body>

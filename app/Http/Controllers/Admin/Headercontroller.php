@@ -42,9 +42,9 @@ class Headercontroller extends Controller
         Image::make(public_path().'/admin/images/'.$filename);
         $create_header->image = $filename;
         $create_header->id_admin = Auth::user()->id;
-        
+
         $create_header->save();
-        return redirect()->route('header');
+        return redirect()->route('header')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     public function updateStatus(Request $request)
@@ -52,6 +52,10 @@ class Headercontroller extends Controller
         $headers = Header::findOrFail($request->id_header);
         $headers->status = $request->status;
         $headers->save();
+
+        // Header::where('id_header', '!=', $request->id_header)->where('status', 'open')->update([
+        //     'status' => 'close'
+        // ]);
 
         return response()->json(['success'=>'Status change successfully.']);
     }
@@ -66,6 +70,6 @@ class Headercontroller extends Controller
         $delete = Header::find($id_header);
         File::delete(public_path().'/admin/images/'.$delete->image);
         $delete->delete();
-        return redirect('/Admin/header/index');
+        return redirect('/Admin/header/index')->with('delete','ลบข้อมูลเรียบร้อย');
     }
 }

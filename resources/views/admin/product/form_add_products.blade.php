@@ -38,7 +38,7 @@
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">เนื้อหา</label>
                                                     <input class="form-control" name="heading" id="heading" placeholder="ชื่อ">
-                                                    
+
                                                     @error('heading')
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
@@ -54,7 +54,7 @@
 
                                                 {{-- <div class="form-group">
                                                     <input class="form-control" name="type_product" id="type_product" placeholder="ประเภทสินค้า">
-                                                    
+
                                                     @error('type_product')
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror

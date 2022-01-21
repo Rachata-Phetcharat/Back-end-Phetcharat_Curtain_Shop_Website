@@ -26,15 +26,39 @@
                             </div>
                         </div>
 
+                        @if (session('success'))
+                            <script>
+                                Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'บันทึกข้อมูลเรียบร้อย',
+                                showConfirmButton: false,
+                                timer: 1500
+                                })
+                            </script>
+                        @endif
+
+                        @if (session('delete'))
+                            <script>
+                                Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'ลบข้อมูลเรียบร้อย',
+                                showConfirmButton: false,
+                                timer: 1500
+                                })
+                            </script>
+                        @endif
+
                         <!-- page start-->
                         <header class="panel-heading"> Responsive tables </header>
                         <div class="row">
                             <div class="col-lg-12">
                                 <section class="panel">
                                     <div class="breadcrumb">
-                                        <a href="{{route('add_body')}}" class="btn btn-primary">เพิ่มข้อมูล</a>
+                                        <a href="{{route('add_body')}}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
                                         <div class="table-responsive">
-                                            <table class="table">
+                                            <table class="table table-bordered">
                                                 <thead>
                                                     <tr>
                                                         <th>ลำดับ</th>

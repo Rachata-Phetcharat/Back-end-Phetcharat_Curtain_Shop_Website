@@ -25,6 +25,31 @@
                                 <hr>
                             </div>
                         </div>
+
+                        @if (session('success'))
+                            <script>
+                                Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'บันทึกข้อมูลเรียบร้อย',
+                                showConfirmButton: false,
+                                timer: 1500
+                                })
+                            </script>
+                        @endif
+
+                        @if (session('delete'))
+                            <script>
+                                Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'ลบข้อมูลเรียบร้อย',
+                                showConfirmButton: false,
+                                timer: 1500
+                                })
+                            </script>
+                        @endif
+
                         <!-- page start-->
                         <div class="row">
                             <div class="col-lg-12">
@@ -33,9 +58,9 @@
                                         Responsive tables
                                     </header>
                                     <div class="breadcrumb">
-                                        <a href="{{route('add_header')}}" class="btn btn-primary">เพิ่มข้อมูล</a>
+                                        <a href="{{route('add_header')}}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
                                         <div class="table-responsive">
-                                            <table class="table">
+                                            <table class="table table-bordered">
                                                 <thead>
                                                     <tr>
                                                         <th>ลำดับ</th>
@@ -51,7 +76,7 @@
                                                             <td>{{$Header->id_header}}</td>
                                                             <td><img src="{{asset('admin/images/'.$Header->image)}}" alt="" style="width: 150px"></td>
                                                             <td>
-                                                                <input type="checkbox" data-id="{{ $Header->id_header }}" name="status" class="js-switch" {{ $Header->status == 'open' ? 'checked' : '' }}>                   
+                                                                <input type="checkbox" data-id="{{ $Header->id_header }}" name="status" class="js-switch" {{ $Header->status == 'open' ? 'checked' : '' }}>
                                                                 {{-- <label class="switch">
                                                                     <input type="checkbox" checked>
                                                                     <span class="slider round">{{$Header->status}}</span>
@@ -106,6 +131,6 @@ let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
     });
 </script>
 
-    
+
 
 </html>

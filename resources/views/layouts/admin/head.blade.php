@@ -11,7 +11,7 @@
 
     <title>ร้านผ้าม่านเพชรรัตน์</title>
 
-    <link rel="icon" href="{{asset('admin/img/logo.png')}}" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{asset('admin/img/main-logo.png')}}" type="image/gif" sizes="16x16">
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -24,6 +24,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Custom styles for this template-->
     <link href="{{asset('admin/css/sb-admin-2.css')}}" rel="stylesheet">
 </head>
+
+
