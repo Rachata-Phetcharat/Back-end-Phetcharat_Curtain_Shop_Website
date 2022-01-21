@@ -40,11 +40,11 @@
     </li>
 
     <!-- Nav Item - show -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{route('content')}}">
             <i class="fab fa-leanpub"></i>
             <span>หน้าเนื้อหา</span></a>
-    </li>
+    </li> --}}
 
     <!-- Nav Item - header -->
     <li class="nav-item">

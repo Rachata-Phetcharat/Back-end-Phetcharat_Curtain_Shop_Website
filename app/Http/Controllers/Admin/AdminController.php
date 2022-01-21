@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
-use App\header;
+use App\Header;
 use App\Show;
 use App\Type_product;
 

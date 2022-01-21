@@ -4,7 +4,7 @@
     <!-- container section start -->
     <div id="wrapper">
         <!--sidebar start-->
-       @include('layouts/admin/sidebar')
+        @include('layouts/admin/sidebar')
 
         <div id="content-wrapper" class="d-flex flex-column">
             <!--header start-->
@@ -29,11 +29,11 @@
                         @if (session('success'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'บันทึกข้อมูลเรียบร้อย',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'บันทึกข้อมูลเรียบร้อย',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                         @endif
@@ -41,22 +41,21 @@
                         @if (session('delete'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'ลบข้อมูลเรียบร้อย',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'ลบข้อมูลเรียบร้อย',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                         @endif
 
                         <!-- page start-->
-                        <header class="panel-heading"> Responsive tables </header>
                         <div class="row">
                             <div class="col-lg-12">
                                 <section class="panel">
                                     <div class="breadcrumb">
-                                        <a href="{{route('add_body')}}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
+                                        <a href="{{ route('add_body') }}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -73,13 +72,22 @@
                                                 <tbody>
                                                     <tr>
                                                         @foreach ($content as $Content)
-                                                            <td>{{$Content->id_content}}</td>
-                                                            <td>{{$Content->heading}}</td>
-                                                            <td>{{$Content->text}}</td>
-                                                            <td><img src="{{asset('admin/images/'.$Content->image)}}" alt="" style="width: 150px"></td>
-                                                            <td>{{$Content->admin->firstName." ".$Content->admin->lastName}}</td>
-                                                            <td><a href="{{url('/Admin/content/edit_create/'.$Content->id_content)}}" class="btn btn-warning btn-circle"><i class="fas fa-edit"></i></a></td>
-                                                            <td><a href="{{url('/Admin/content/delete/'.$Content->id_content)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
+                                                            <td>{{ $Content->id_content }}</td>
+                                                            <td>{{ $Content->heading }}</td>
+                                                            <td>{{ $Content->text }}</td>
+                                                            <td><img src="{{ asset('admin/images/' . $Content->image) }}"
+                                                                    alt="" style="width: 150px"></td>
+                                                            <td>{{ $Content->admin->firstName . ' ' . $Content->admin->lastName }}
+                                                            </td>
+                                                            <td><a href="{{ url('/Admin/content/edit_create/' . $Content->id_content) }}"
+                                                                    class="btn btn-warning btn-circle"><i
+                                                                        class="fas fa-edit"></i></a></td>
+                                                            <td><a
+                                                                    href="{{ url('/Admin/content/delete/' . $Content->id_content) }}"><button
+                                                                        type="submit"
+                                                                        class="btn btn-danger btn-circle"><i
+                                                                            class="fas fa-trash"></i></button></a>
+                                                            </td>
                                                         @endforeach
                                                     </tr>
                                                 </tbody>
@@ -96,7 +104,7 @@
         </div>
     </div>
 
-  @include('layouts/admin/footer')
+    @include('layouts/admin/footer')
 </body>
 
 </html>

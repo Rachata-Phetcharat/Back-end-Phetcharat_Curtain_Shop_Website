@@ -4,7 +4,7 @@
     <!-- container section start -->
     <div id="wrapper">
         <!--sidebar start-->
-       @include('layouts/admin/sidebar')
+        @include('layouts/admin/sidebar')
 
         <div id="content-wrapper" class="d-flex flex-column">
             <!--header start-->
@@ -29,11 +29,11 @@
                         @if (session('success'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'บันทึกข้อมูลเรียบร้อย',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'บันทึกข้อมูลเรียบร้อย',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                         @endif
@@ -41,22 +41,21 @@
                         @if (session('delete'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'ลบข้อมูลเรียบร้อย',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'ลบข้อมูลเรียบร้อย',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                         @endif
 
                         <!-- page start-->
-                        <header class="panel-heading"> Responsive tables </header>
                         <div class="row">
                             <div class="col-lg-12">
                                 <section class="panel">
                                     <div class="breadcrumb">
-                                        <a href="{{route('add_show')}}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
+                                        <a href="{{ route('add_show') }}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -70,11 +69,19 @@
                                                 <tbody>
                                                     @foreach ($show as $show_product)
                                                         <tr>
-                                                            <td>{{$show_product->id_show}}</td>
-                                                            <td> <img src="{{asset('admin/images/'.$show_product->image)}}" alt="" style="width: 150px"></td>
-                                                            <td>{{$show_product->admin->firstName." ".$show_product->admin->lastName}}</td>
+                                                            <td>{{ $show_product->id_show }}</td>
+                                                            <td> <img
+                                                                    src="{{ asset('admin/images/' . $show_product->image) }}"
+                                                                    alt="" style="width: 150px"></td>
+                                                            <td>{{ $show_product->admin->firstName . ' ' . $show_product->admin->lastName }}
+                                                            </td>
                                                             {{-- <td><a href="{{url('/Admin/show/edit_show/'.$show_product->id_show)}}" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a></td> --}}
-                                                            <td><a href="{{url('/Admin/show/delete/'.$show_product->id_show)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
+                                                            <td><a
+                                                                    href="{{ url('/Admin/show/delete/' . $show_product->id_show) }}"><button
+                                                                        type="submit"
+                                                                        class="btn btn-danger btn-circle"><i
+                                                                            class="fas fa-trash"></i></button></a>
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -92,7 +99,7 @@
         </div>
     </div>
 
-  @include('layouts/admin/footer')
+    @include('layouts/admin/footer')
 </body>
 
 </html>

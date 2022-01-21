@@ -29,11 +29,11 @@
                         @if (session('success'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'บันทึกข้อมูลเรียบร้อย',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'บันทึกข้อมูลเรียบร้อย',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                         @endif
@@ -41,11 +41,11 @@
                         @if (session('delete'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'ลบข้อมูลเรียบร้อย',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'ลบข้อมูลเรียบร้อย',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                         @endif
@@ -54,11 +54,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <section class="panel">
-                                    <header class="panel-heading">
-                                        Responsive tables
-                                    </header>
                                     <div class="breadcrumb">
-                                        <a href="{{route('add_header')}}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
+                                        <a href="{{ route('add_header') }}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -73,18 +70,28 @@
                                                 <tbody>
                                                     @foreach ($header as $Header)
                                                         <tr>
-                                                            <td>{{$Header->id_header}}</td>
-                                                            <td><img src="{{asset('admin/images/'.$Header->image)}}" alt="" style="width: 150px"></td>
+                                                            <td>{{ $Header->id_header }}</td>
+                                                            <td><img src="{{ asset('admin/images/' . $Header->image) }}"
+                                                                    alt="" style="width: 150px"></td>
                                                             <td>
-                                                                <input type="checkbox" data-id="{{ $Header->id_header }}" name="status" class="js-switch" {{ $Header->status == 'open' ? 'checked' : '' }}>
+                                                                <input type="checkbox"
+                                                                    data-id="{{ $Header->id_header }}" name="status"
+                                                                    class="js-switch"
+                                                                    {{ $Header->status == 'open' ? 'checked' : '' }}>
                                                                 {{-- <label class="switch">
                                                                     <input type="checkbox" checked>
                                                                     <span class="slider round">{{$Header->status}}</span>
                                                                 </label> --}}
                                                             </td>
-                                                            <td>{{$Header->admin->firstName." ".$Header->admin->lastName}}</td>
-                                                            <td><a href="{{url('/Admin/header/delete/'.$Header->id_header)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
-                                                            </tr>
+                                                            <td>{{ $Header->admin->firstName . ' ' . $Header->admin->lastName }}
+                                                            </td>
+                                                            <td><a
+                                                                    href="{{ url('/Admin/header/delete/' . $Header->id_header) }}"><button
+                                                                        type="submit"
+                                                                        class="btn btn-danger btn-circle"><i
+                                                                            class="fas fa-trash"></i></button></a>
+                                                            </td>
+                                                        </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
@@ -101,31 +108,35 @@
         </div>
     </div>
 
-   @include('layouts/admin/footer')
+    @include('layouts/admin/footer')
 
 </body>
 
 <script>
-
-let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+    let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
     elems.forEach(function(html) {
-        let switchery = new Switchery(html,  { size: 'small' });
+        let switchery = new Switchery(html, {
+            size: 'small'
+        });
     });
 
 
-    $(document).ready(function(){
-    $('.js-switch').change(function () {
-        let status = $(this).prop('checked') === true ?  'open' : 'close' ;
-        let Idheader = $(this).data('id');
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: '{{ route('header.update.status') }}',
-            data: {'status': status, 'id_header': Idheader},
-            success: function (data) {
-                console.log(data.message);
-            }
+    $(document).ready(function() {
+        $('.js-switch').change(function() {
+            let status = $(this).prop('checked') === true ? 'open' : 'close';
+            let Idheader = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: '{{ route('header.update.status') }}',
+                data: {
+                    'status': status,
+                    'id_header': Idheader
+                },
+                success: function(data) {
+                    console.log(data.message);
+                }
             });
         });
     });
