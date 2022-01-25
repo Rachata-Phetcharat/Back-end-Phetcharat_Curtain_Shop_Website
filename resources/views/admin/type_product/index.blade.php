@@ -28,11 +28,11 @@
                         @if (session('success'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'บันทึกข้อมูลเรียบร้อย',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'บันทึกข้อมูลเรียบร้อย',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                         @endif
@@ -40,11 +40,11 @@
                         @if (session('delete'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'success',
-                                title: 'ลบข้อมูลเรียบร้อย',
-                                showConfirmButton: false,
-                                timer: 1500
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'ลบข้อมูลเรียบร้อย',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                         @endif
@@ -52,11 +52,11 @@
                         @if (session('error'))
                             <script>
                                 Swal.fire({
-                                position: 'top-end',
-                                icon: 'error',
-                                title: 'ไม่สามารถลบประเภทสินค้าได้เนื่องจากมีสินค้าอยู่',
-                                showConfirmButton: false,
-                                timer: 2500
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'ไม่สามารถลบประเภทสินค้าได้เนื่องจากมีสินค้าอยู่',
+                                    showConfirmButton: false,
+                                    timer: 2500
                                 })
                             </script>
                         @endif
@@ -71,9 +71,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <section class="panel">
-                                    <header class="panel-heading"> Responsive tables </header>
                                     <div class="breadcrumb">
-                                        <a href="{{route('add_type')}}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
+                                        <a href="{{ route('add_type') }}" class="btn btn-primary mb-3">เพิ่มข้อมูล</a>
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -91,14 +90,22 @@
                                                 <tbody>
                                                     @foreach ($type_product as $type)
                                                         <tr>
-                                                            <td>{{$type->id_type}}</td>
-                                                            <td>{{$type->name}}</td>
-                                                            <td>{{$type->product->count()}}</td>
-                                                            <td>{{$type->admin->firstName." ".$type->admin->lastName}}</td>
-                                                            <td>{{$type->created_at}}</td>
-                                                            <td>{{$type->updated_at}}</td>
-                                                            <td><a href="{{url('/Admin/type_product/edit_type/'.$type->id_type)}}" class="btn btn-warning btn-circle"><i class="fas fa-edit"></i></i></a></td>
-                                                            <td><a href="{{url('/Admin/type_product/delete/'.$type->id_type)}}"><button type="submit" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></button></a></td>
+                                                            <td>{{ $type->id_type }}</td>
+                                                            <td>{{ $type->name }}</td>
+                                                            <td>{{ $type->product->count() }}</td>
+                                                            <td>{{ $type->admin->firstName . ' ' . $type->admin->lastName }}
+                                                            </td>
+                                                            <td>{{ $type->created_at }}</td>
+                                                            <td>{{ $type->updated_at }}</td>
+                                                            <td><a href="{{ url('/Admin/type_product/edit_type/' . $type->id_type) }}"
+                                                                    class="btn btn-warning btn-circle"><i
+                                                                        class="fas fa-edit"></i></i></a></td>
+                                                            <td><a
+                                                                    href="{{ url('/Admin/type_product/delete/' . $type->id_type) }}"><button
+                                                                        type="submit"
+                                                                        class="btn btn-danger btn-circle"><i
+                                                                            class="fas fa-trash"></i></button></a>
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -116,7 +123,7 @@
         </div>
     </div>
 
-   @include('layouts/admin/footer')
+    @include('layouts/admin/footer')
 
 </body>
 

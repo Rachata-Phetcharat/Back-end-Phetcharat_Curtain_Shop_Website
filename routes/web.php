@@ -46,13 +46,13 @@ Route::middleware(['auth', 'vetifyisadmin'])->group(function () {
     Route::get('/Admin/type_product/delete/{id}', 'Admin\Type_product_Controller@delete');
 
     //Show
-    Route::get('/Admin/show/index', 'Admin\ShowController@index')->name('show');
-    Route::get('/Admin/show/add_shows', 'Admin\ShowController@add')->name('add_show');
+    Route::get('/Admin/show/index', 'Admin\Showcontroller@index')->name('show');
+    Route::get('/Admin/show/add_shows', 'Admin\Showcontroller@add')->name('add_show');
 
-    Route::post('/Admin/show/create', 'Admin\ShowController@create')->name('create_show');
-    Route::post('Admin/show/update/{id}', 'Admin\ShowController@update');
-    // Route::get('/Admin/show/edit_show/{id}' , 'Admin\ShowController@edit');
-    Route::get('/Admin/show/delete/{id}', 'Admin\ShowController@delete');
+    Route::post('/Admin/show/create', 'Admin\Showcontroller@create')->name('create_show');
+    Route::post('Admin/show/update/{id}', 'Admin\Showcontroller@update');
+    // Route::get('/Admin/show/edit_show/{id}' , 'Admin\Showcontroller@edit');
+    Route::get('/Admin/show/delete/{id}', 'Admin\Showcontroller@delete');
 
     //Body
     Route::get('/Admin/content/index', 'Admin\Contentcontroller@index')->name('content');
@@ -64,20 +64,17 @@ Route::middleware(['auth', 'vetifyisadmin'])->group(function () {
     Route::get('/Admin/content/delete/{id}', 'Admin\Contentcontroller@delete');
 
     //Header
-    Route::get('/Admin/header/index', 'Admin\HeaderController@index')->name('header');
+    Route::get('/Admin/header/index', 'Admin\Headercontroller@index')->name('header');
     Route::get('/Admin/header/from_add_headers', 'Admin\HeaderController@add')->name('add_header');
     Route::get('/Admin/header/from_edit_headers', 'Admin\HeaderController@edit')->name('edit_header');
     Route::get('/Admin/header/delete/{id}', 'Admin\HeaderController@delete');
     Route::get('/status/update', 'Admin\HeaderController@updateStatus')->name('header.update.status');
 
     Route::post('/Admin/header/create', 'Admin\HeaderController@create')->name('create_header');
-
-
 });
 
-  //front-end
-    // Route::get('/welcome', 'front\indexController@index')->name('index');
-    Route::get('/product', 'front\productController@product')->name('product.f');
-    Route::get('/word', 'front\workController@work')->name('work');
-    Route::get('/contact', 'front\contactController@contect')->name('contact');
-
+//front-end
+// Route::get('/welcome', 'front\indexController@index')->name('index');
+Route::get('/product', 'front\productController@product')->name('product.f');
+Route::get('/word', 'front\workController@work')->name('work');
+Route::get('/contact', 'front\contactController@contect')->name('contact');
