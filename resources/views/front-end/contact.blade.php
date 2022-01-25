@@ -70,7 +70,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-4 text-center mt-3">
+            <div class="col-sm-4 black_fonts mt-3">
                 <div class="card img-fluid" style="width: 22rem;">
                     <img src="{{ asset('admin/img/M-1.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
