@@ -65,12 +65,12 @@ Route::middleware(['auth', 'vetifyisadmin'])->group(function () {
 
     //Header
     Route::get('/Admin/header/index', 'Admin\Headercontroller@index')->name('header');
-    Route::get('/Admin/header/from_add_headers', 'Admin\HeaderController@add')->name('add_header');
-    Route::get('/Admin/header/from_edit_headers', 'Admin\HeaderController@edit')->name('edit_header');
-    Route::get('/Admin/header/delete/{id}', 'Admin\HeaderController@delete');
-    Route::get('/status/update', 'Admin\HeaderController@updateStatus')->name('header.update.status');
+    Route::get('/Admin/header/from_add_headers', 'Admin\Headercontroller@add')->name('add_header');
+    Route::get('/Admin/header/from_edit_headers', 'Admin\Headercontroller@edit')->name('edit_header');
+    Route::get('/Admin/header/delete/{id}', 'Admin\Headercontroller@delete');
+    Route::get('/status/update', 'Admin\Headercontroller@updateStatus')->name('header.update.status');
 
-    Route::post('/Admin/header/create', 'Admin\HeaderController@create')->name('create_header');
+    Route::post('/Admin/header/create', 'Admin\Headercontroller@create')->name('create_header');
 });
 
 //front-end
